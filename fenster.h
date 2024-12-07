@@ -246,7 +246,10 @@ FENSTER_API int fenster_open(struct fenster *f) {
   return 0;
 }
 
-FENSTER_API void fenster_close(struct fenster *f) { (void)f; }
+FENSTER_API void fenster_close(struct fenster *f) {
+  PostMessage(f->hwnd, WM_CLOSE, 0, 0);
+  (void)f;
+}
 
 FENSTER_API int fenster_loop(struct fenster *f) {
   MSG msg;
