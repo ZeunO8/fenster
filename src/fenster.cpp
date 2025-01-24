@@ -267,7 +267,7 @@ int fenster_loop(struct fenster *f) {
 #endif
 
 #ifdef _WIN32
-void fenster_sleep(int64_t ms) { Sleep(ms); }
+void fenster_sleep(int64_t ms) { Sleep((DWORD)ms); }
 int64_t fenster_time() {
   LARGE_INTEGER freq, count;
   QueryPerformanceFrequency(&freq);
